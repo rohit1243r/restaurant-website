@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Cart" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="page-hero-copy">
+        <p class="eyebrow">Your Cart</p>
+        <h1>Review every premium pick before checkout.</h1>
+        <p>Elegant quantity controls, a clean pricing summary, and a focused checkout panel make the order flow feel polished and fast.</p>
+      </div>
+      <aside class="page-hero-card">
+        <div>
+          <p class="eyebrow">Refined Checkout</p>
+          <h3>Built to feel smooth on mobile and desktop.</h3>
+        </div>
+      </aside>
+    </section>
+
+    <% if (cartItems && cartItems.length) { %>
+      <section class="cart-layout">
+        <div class="cart-stack">
+          <% cartItems.forEach((item) => { %>
+            <article class="cart-item reveal">
+              <div class="cart-thumb">
+                <img src="<%= item.foodId.image || '/images/pasta.jpg' %>" alt="<%= item.foodId.name %>">
+              </div>
+              <div class="cart-meta">
+                <span class="category-pill"><%= item.foodId.category || 'Signature' %></span>
+                <h3><%= item.foodId.name %></h3>
+                <p class="lead"><%= item.foodId.description %></p>
+                <div class="stack-actions">
+                  <div class="quantity-control">
+                    <a href="/decrease/<%= item._id %>" aria-label="Decrease quantity">-</a>
+                    <strong><%= item.quantity %></strong>
+                    <a href="/increase/<%= item._id %>" aria-label="Increase quantity">+</a>
+                  </div>
+                  <a href="/remove-cart/<%= item._id %>" class="btn btn-sm btn-ghost">Remove</a>
+                </div>
+              </div>
+              <div>
+                <span class="price-badge" style="position: static;">₹<%= item.foodId.price %></span>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+
+        <aside class="summary-card reveal">
+          <h3>Order Summary</h3>
+          <div class="summary-row">
+            <span>Items</span>
+            <strong><%= cartItems.length %></strong>
+          </div>
+          <div class="summary-row">
+            <span>Delivery</span>
+            <strong>Free</strong>
+          </div>
+          <div class="summary-row">
+            <span>Premium packaging</span>
+            <strong>Included</strong>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <strong>₹<%= totalPrice %></strong>
+          </div>
+          <div class="stack-actions" style="margin-top: 1.2rem;">
+            <a href="/place-order" class="btn btn-primary" style="width: 100%;">Proceed to Checkout</a>
+            <a href="/menu" class="btn btn-secondary" style="width: 100%;">Add More Items</a>
+          </div>
+        </aside>
+      </section>
+    <% } else { %>
+      <section class="empty-state reveal">
+        <div class="empty-illustration"><i class="bi bi-bag-x"></i></div>
+        <h2>Your cart is still empty.</h2>
+        <p class="lead">Start with chef favorites, handcrafted pastas, and premium burgers from the signature menu.</p>
+        <a href="/menu" class="btn btn-primary">Browse Menu</a>
+      </section>
+    <% } %>
+  </main>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Reservation" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="page-hero-copy">
+        <p class="eyebrow">Reservation Experience</p>
+        <h1>Book your table with the same luxury feel as the dining room.</h1>
+        <p>Select the date, time, and party size in a refined reservation flow designed for confidence on mobile and desktop.</p>
+      </div>
+      <aside class="page-hero-card">
+        <div>
+          <p class="eyebrow">Private Events</p>
+          <h3>Chef counter, date nights, celebrations, and intimate gatherings.</h3>
+        </div>
+      </aside>
+    </section>
+
+    <section class="split-shell">
+      <div class="auth-panel reveal">
+        <p class="eyebrow">Reservation Form</p>
+        <h1>Secure your preferred dining slot.</h1>
+        <form action="/reservation" method="POST" class="auth-card form-grid">
+          <div class="form-grid two">
+            <div class="form-group">
+              <label for="reservation-name">Guest name</label>
+              <input id="reservation-name" type="text" name="name" class="form-input" placeholder="Enter guest name" required>
+            </div>
+            <div class="form-group">
+              <label for="reservation-phone">Phone number</label>
+              <input id="reservation-phone" type="text" name="phone" class="form-input" placeholder="Enter phone number" required>
+            </div>
+          </div>
+          <div class="form-grid two">
+            <div class="form-group">
+              <label for="guests">Guests</label>
+              <input id="guests" type="number" name="guests" class="form-input" placeholder="Number of guests" required>
+            </div>
+            <div class="form-group">
+              <label for="reservation-date">Date</label>
+              <input id="reservation-date" type="date" name="date" class="form-input" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reservation-time">Time</label>
+            <input id="reservation-time" type="time" name="time" class="form-input" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Reserve Table</button>
+        </form>
+      </div>
+
+      <div class="newsletter-card reveal">
+        <p class="eyebrow">Premium Service</p>
+        <h2>Reservation benefits</h2>
+        <div class="info-grid">
+          <article class="info-tile">
+            <h3>Priority seating</h3>
+            <p class="lead">Designed for premium table allocation and comfortable booking clarity.</p>
+          </article>
+          <article class="info-tile">
+            <h3>Event-ready layout</h3>
+            <p class="lead">Perfect for special dinners, proposals, birthdays, and formal dining moments.</p>
+          </article>
+          <article class="info-tile">
+            <h3>Luxury visual flow</h3>
+            <p class="lead">Warm form styling, glassmorphism panels, and clear actions throughout.</p>
+          </article>
+          <article class="info-tile">
+            <h3>Responsive by default</h3>
+            <p class="lead">A polished experience across mobile, tablet, and large desktop screens.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

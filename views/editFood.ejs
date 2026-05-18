@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Edit Food" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="page-shell">
+    <section class="split-shell">
+      <div class="auth-panel reveal">
+        <p class="eyebrow">Admin Menu Builder</p>
+        <h1>Edit dish presentation and details.</h1>
+        <form action="/edit-food/<%= food._id %>" method="POST" class="auth-card form-grid">
+          <div class="form-group">
+            <label for="edit-name">Food name</label>
+            <input id="edit-name" type="text" name="name" class="form-input" value="<%= food.name %>" required>
+          </div>
+          <div class="form-grid two">
+            <div class="form-group">
+              <label for="edit-price">Price</label>
+              <input id="edit-price" type="number" name="price" class="form-input" value="<%= food.price %>" required>
+            </div>
+            <div class="form-group">
+              <label for="edit-category">Category</label>
+              <input id="edit-category" type="text" name="category" class="form-input" value="<%= food.category %>" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-image">Image URL</label>
+            <input id="edit-image" type="text" name="image" class="form-input" value="<%= food.image %>" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-description">Description</label>
+            <input id="edit-description" type="text" name="description" class="form-input" value="<%= food.description %>" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Food</button>
+        </form>
+      </div>
+
+      <div class="newsletter-card reveal">
+        <p class="eyebrow">Design Continuity</p>
+        <h2>Editing flows stay premium too.</h2>
+        <p class="lead">This keeps back-office pages from feeling disconnected from the front-end experience you’re presenting to customers.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

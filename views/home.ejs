@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Home" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Dark Luxury Restaurant Experience</p>
+          <h1>Savor fire-kissed cuisine in a space designed for unforgettable nights.</h1>
+          <p>From chef-led tasting journeys to elegant everyday ordering, Luxe Bites blends cinematic ambience, premium ingredients, and modern hospitality into one polished dining platform.</p>
+          <div class="hero-actions">
+            <a href="/menu" class="btn btn-primary btn-lg"><i class="bi bi-stars"></i> Explore Menu</a>
+            <a href="/reservation" class="btn btn-secondary btn-lg"><i class="bi bi-calendar-event"></i> Reserve a Table</a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="hero-stat">
+              <strong>4.9/5</strong>
+              <span>Guest satisfaction rating</span>
+            </div>
+            <div class="hero-stat">
+              <strong>25+</strong>
+              <span>Signature dishes curated weekly</span>
+            </div>
+            <div class="hero-stat">
+              <strong>12 AM</strong>
+              <span>Late-night service every day</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-showcase reveal">
+          <article class="spotlight-card">
+            <div class="spotlight-card-content">
+              <span class="spotlight-chip"><i class="bi bi-award"></i> Chef's Signature</span>
+              <h3>Smoked saffron pasta finished with parmesan snow and citrus oil.</h3>
+              <div class="spotlight-meta">
+                <span><i class="bi bi-clock"></i> 18 min prep</span>
+                <span><i class="bi bi-fire"></i> Premium seasonal selection</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Popular Dishes</p>
+          <h2>Most loved plates at the table.</h2>
+        </div>
+        <p class="lead">A premium mix of crowd favorites, rich textures, and bold plating inspired by global fine dining.</p>
+      </div>
+
+      <div class="card-grid three">
+        <article class="food-card reveal">
+          <div class="food-media">
+            <img src="/images/pizza.jpg" alt="Truffle burrata pizza">
+            <span class="price-badge">₹799</span>
+          </div>
+          <div class="food-body">
+            <div class="food-topline">
+              <span class="category-pill">Woodfire</span>
+              <span class="badge">Top Rated</span>
+            </div>
+            <h3 class="food-name">Truffle Burrata Pizza</h3>
+            <p class="food-description">Charred crust, roasted garlic cream, shaved truffle, and burrata finished at the pass.</p>
+            <div class="food-footer">
+              <span class="muted">Perfect for date night dining</span>
+              <a href="/menu" class="btn btn-sm btn-primary">Order Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card reveal">
+          <div class="food-media">
+            <img src="/images/pasta.jpg" alt="Signature saffron pasta">
+            <span class="price-badge">₹649</span>
+          </div>
+          <div class="food-body">
+            <div class="food-topline">
+              <span class="category-pill">Chef Special</span>
+              <span class="badge">Silky</span>
+            </div>
+            <h3 class="food-name">Saffron Velvet Linguine</h3>
+            <p class="food-description">Slow-folded cream sauce with confit garlic, herbs, parmesan, and golden saffron threads.</p>
+            <div class="food-footer">
+              <span class="muted">Rich, aromatic, beautifully plated</span>
+              <a href="/menu" class="btn btn-sm btn-primary">Order Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card reveal">
+          <div class="food-media">
+            <img src="/images/burger.jpg" alt="Wagyu burger">
+            <span class="price-badge">₹589</span>
+          </div>
+          <div class="food-body">
+            <div class="food-topline">
+              <span class="category-pill">Smash Favorite</span>
+              <span class="badge">New</span>
+            </div>
+            <h3 class="food-name">Gold Crust Wagyu Burger</h3>
+            <p class="food-description">A layered burger experience with pepper jam, smoked cheese, and crisp onion strands.</p>
+            <div class="food-footer">
+              <span class="muted">Fastest-moving delivery item</span>
+              <a href="/menu" class="btn btn-sm btn-primary">Order Now</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-surface">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Chef Special</p>
+            <h2>Seasonal stories plated with precision.</h2>
+          </div>
+          <p class="lead">Rotating small-batch dishes inspired by fine dining rituals, theatrical plating, and luxury produce.</p>
+        </div>
+
+        <div class="card-grid two">
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="bi bi-egg-fried"></i></div>
+            <h3>Black Ember Seafood Bowl</h3>
+            <p class="lead">Scallops, charred prawns, saffron rice, citrus butter foam, and herbs served in a warm stone bowl.</p>
+            <div class="food-footer">
+              <span class="price-badge" style="position: static;">₹1,099</span>
+              <a href="/reservation" class="btn btn-sm btn-secondary">Book Chef Table</a>
+            </div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon"><i class="bi bi-cup-hot"></i></div>
+            <h3>Golden Midnight Dessert Set</h3>
+            <p class="lead">Dark chocolate textures, brûléed figs, caramel shards, and a dramatic tableside pour of warm sauce.</p>
+            <div class="food-footer">
+              <span class="price-badge" style="position: static;">₹699</span>
+              <a href="/menu" class="btn btn-sm btn-secondary">See More Specials</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Why Guests Return</p>
+          <h2>Designed like a luxury venue, built like a modern platform.</h2>
+        </div>
+        <p class="lead">Every touchpoint is crafted to feel premium, from reservation flow to food presentation and delivery packaging.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <div class="feature-icon"><i class="bi bi-brilliance"></i></div>
+          <h3>Ambient Storytelling</h3>
+          <p class="lead">Layered lighting, rich materials, and moody visuals create a modern luxury atmosphere throughout the experience.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-icon"><i class="bi bi-box-seam"></i></div>
+          <h3>Polished Ordering Flow</h3>
+          <p class="lead">Seamless menu browsing, premium cards, and focused cart experiences help guests commit quickly and confidently.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-icon"><i class="bi bi-stars"></i></div>
+          <h3>Signature Hospitality</h3>
+          <p class="lead">From first click to final course, the brand language feels elevated, warm, and unmistakably premium.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Testimonials</p>
+          <h2>What guests say after the last bite.</h2>
+        </div>
+      </div>
+
+      <div class="testimonial-slider reveal">
+        <div class="testimonial-track" data-testimonial-track>
+          <div class="testimonial-slide">
+            <article class="testimonial-panel">
+              <p class="eyebrow">Private Dining Guest</p>
+              <p class="testimonial-quote">“The design feels cinematic and the food presentation is every bit as premium as the booking experience.”</p>
+              <p class="muted">Aarav Mehta, anniversary reservation</p>
+            </article>
+          </div>
+          <div class="testimonial-slide">
+            <article class="testimonial-panel">
+              <p class="eyebrow">Delivery Customer</p>
+              <p class="testimonial-quote">“This feels closer to a luxury brand than a regular restaurant app. The menu cards and cart flow are beautiful.”</p>
+              <p class="muted">Sara Khan, repeat order customer</p>
+            </article>
+          </div>
+          <div class="testimonial-slide">
+            <article class="testimonial-panel">
+              <p class="eyebrow">Food Creator</p>
+              <p class="testimonial-quote">“Moody visuals, elegant spacing, and a convincing premium tone. It feels ready for a real restaurant launch.”</p>
+              <p class="muted">Nikhil Roy, hospitality content creator</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" type="button" data-testimonial-prev aria-label="Previous testimonial"><i class="bi bi-arrow-left"></i></button>
+        <button class="slider-btn" type="button" data-testimonial-next aria-label="Next testimonial"><i class="bi bi-arrow-right"></i></button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="reservation-banner reveal">
+        <p class="eyebrow">Reservations</p>
+        <h2>Reserve a candlelit table for tonight's service.</h2>
+        <p class="lead">Choose intimate dining, chef counter seating, or a private celebration setup with personalized service.</p>
+        <div class="stack-actions">
+          <a href="/reservation" class="btn btn-primary btn-lg">Make Reservation</a>
+          <a href="/contact" class="btn btn-secondary btn-lg">Plan an Event</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="newsletter-card reveal">
+        <p class="eyebrow">Newsletter</p>
+        <h2>Receive exclusive tasting drops and seasonal launches.</h2>
+        <p class="lead">Stay informed about chef specials, private events, and curated menus before the public release.</p>
+        <form class="newsletter-form">
+          <input type="email" class="form-input" placeholder="Enter your email address">
+          <button type="button" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

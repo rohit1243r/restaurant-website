@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Orders" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="page-hero-copy">
+        <p class="eyebrow">Order History</p>
+        <h1>Track every order in a polished, premium timeline.</h1>
+        <p>Clean status badges, grouped item details, and elegant order summaries make order management feel modern and reliable.</p>
+      </div>
+      <aside class="page-hero-card">
+        <div>
+          <p class="eyebrow">Fast Overview</p>
+          <h3>Review totals, order dates, and delivery progress at a glance.</h3>
+        </div>
+      </aside>
+    </section>
+
+    <% if (orders && orders.length) { %>
+      <section class="orders-list">
+        <% orders.forEach((order, index) => { %>
+          <% const statusClass = (order.status || "pending").toLowerCase(); %>
+          <article class="order-card reveal">
+            <div class="order-top">
+              <div>
+                <p class="eyebrow">Order <%= index + 1 %></p>
+                <h3>#<%= order._id %></h3>
+              </div>
+              <span class="status-badge status-<%= statusClass %>"><%= order.status %></span>
+            </div>
+
+            <div class="order-items">
+              <% order.items.forEach((item) => { %>
+                <div class="order-item">
+                  <span><strong><%= item.foodId.name %></strong> x <%= item.quantity %></span>
+                  <span class="muted"><%= item.foodId.category || "Signature" %></span>
+                </div>
+              <% }) %>
+            </div>
+
+            <div class="order-total">
+              <span class="muted">Placed on <%= order.createdAt.toDateString() %></span>
+              <strong>₹<%= order.totalPrice %></strong>
+            </div>
+          </article>
+        <% }) %>
+      </section>
+    <% } else { %>
+      <section class="empty-state reveal">
+        <div class="empty-illustration"><i class="bi bi-receipt"></i></div>
+        <h2>No orders yet.</h2>
+        <p class="lead">Your completed and active orders will appear here with a premium tracking layout.</p>
+        <a href="/menu" class="btn btn-primary">Start Ordering</a>
+      </section>
+    <% } %>
+  </main>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

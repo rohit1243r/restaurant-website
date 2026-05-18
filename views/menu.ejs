@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Menu" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  <% const categories = [...new Set((foods || []).map((food) => food.category).filter(Boolean))]; %>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="page-hero-copy">
+        <p class="eyebrow">Signature Menu</p>
+        <h1>Choose from a premium lineup of modern comfort classics.</h1>
+        <p>Browse curated dishes, filter by category, and enjoy a polished menu experience inspired by the best food ordering platforms.</p>
+        <div class="page-hero-metrics">
+          <span class="category-pill"><i class="bi bi-grid"></i> <%= (foods || []).length %> dishes live</span>
+          <span class="category-pill"><i class="bi bi-lightning-charge"></i> Fast category filtering</span>
+        </div>
+      </div>
+      <aside class="page-hero-card">
+        <div>
+          <p class="eyebrow">Curated Daily</p>
+          <h3>Luxury plating meets quick ordering.</h3>
+          <p class="lead">Search, scan, and add your favorites with premium cards, hover states, and clear pricing.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="menu-tools reveal">
+      <div class="search-shell">
+        <i class="bi bi-search"></i>
+        <input type="text" class="search-input" placeholder="Search signature dishes, ingredients, or styles" data-menu-search>
+      </div>
+
+      <div class="category-filter">
+        <button class="category-btn active" type="button" data-filter="all">All</button>
+        <% categories.forEach((category) => { %>
+          <button class="category-btn" type="button" data-filter="<%= category %>"><%= category %></button>
+        <% }) %>
+      </div>
+    </section>
+
+    <section>
+      <% if (foods && foods.length) { %>
+        <div class="card-grid four">
+          <% foods.forEach((food) => { %>
+            <article
+              class="food-card reveal"
+              data-menu-card
+              data-category="<%= food.category || 'special' %>"
+              data-name="<%= food.name || '' %>"
+              data-description="<%= food.description || '' %>"
+            >
+              <div class="food-media">
+                <img src="<%= food.image || '/images/pasta.jpg' %>" alt="<%= food.name %>">
+                <span class="price-badge">₹<%= food.price %></span>
+              </div>
+              <div class="food-body">
+                <div class="food-topline">
+                  <span class="category-pill"><%= food.category || 'Specialty' %></span>
+                  <% if (user && user.role === "admin") { %>
+                    <span class="badge">Admin View</span>
+                  <% } %>
+                </div>
+                <h3 class="food-name"><%= food.name %></h3>
+                <p class="food-description"><%= food.description %></p>
+                <div class="food-footer">
+                  <a href="/add-to-cart/<%= food._id %>" class="btn btn-sm btn-primary">Add to Cart</a>
+                </div>
+                <% if (user && user.role === "admin") { %>
+                  <div class="stack-actions" style="margin-top: 1rem;">
+                    <a href="/edit-food/<%= food._id %>" class="btn btn-sm btn-secondary">Edit</a>
+                    <a href="/delete-food/<%= food._id %>" class="btn btn-sm btn-ghost">Delete</a>
+                  </div>
+                <% } %>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <div class="empty-state">
+          <div class="empty-illustration"><i class="bi bi-cup-straw"></i></div>
+          <h2>No dishes available yet.</h2>
+          <p class="lead">Once menu items are added, they’ll appear here in the premium card grid automatically.</p>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<nav class="navbar" id="navbar">
+  <div class="navbar-container">
+    <a href="/" class="navbar-logo">
+      <span class="navbar-logo-mark"><i class="bi bi-fire"></i></span>
+      <span class="navbar-logo-text">
+        Luxe Bites
+        <small>Fine Dining Lounge</small>
+      </span>
+    </a>
+
+    <ul class="navbar-menu" id="navMenu">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/menu" class="nav-link">Menu</a></li>
+      <li><a href="/reservation" class="nav-link">Reservation</a></li>
+      <li><a href="/orders" class="nav-link">Orders</a></li>
+      <li><a href="/contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="navbar-auth">
+      <a href="/cart" class="cart-icon" title="Cart" aria-label="Cart">
+        <i class="bi bi-bag-check"></i>
+        <% if (typeof cartCount !== "undefined" && cartCount > 0) { %>
+          <span class="cart-count"><%= cartCount %></span>
+        <% } %>
+      </a>
+
+      <% if (user) { %>
+        <div class="user-pill">
+          <span class="user-pill-avatar"><%= (user.name || "U").charAt(0).toUpperCase() %></span>
+          <div>
+            <strong><%= user.name %></strong>
+            <small><%= user.role === "admin" ? "Administrator" : "Guest account" %></small>
+          </div>
+        </div>
+        <% if (user.role === "admin") { %>
+          <a href="/admin" class="btn btn-sm btn-primary">Dashboard</a>
+        <% } %>
+        <a href="/logout" class="btn btn-sm btn-ghost">Logout</a>
+      <% } else { %>
+        <a href="/login" class="btn btn-sm btn-ghost">Login</a>
+        <a href="/register" class="btn btn-sm btn-primary">Get Started</a>
+      <% } %>
+    </div>
+
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="flash-stack">
+  <% if (success.length > 0) { %>
+    <div class="flash-message flash-success" data-flash>
+      <i class="bi bi-check-circle-fill"></i>
+      <span><%= success %></span>
+    </div>
+  <% } %>
+
+  <% if (error.length > 0) { %>
+    <div class="flash-message flash-error" data-flash>
+      <i class="bi bi-exclamation-octagon-fill"></i>
+      <span><%= error %></span>
+    </div>
+  <% } %>
+</div>

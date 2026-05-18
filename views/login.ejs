@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Login" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="page-shell">
+    <section class="auth-shell">
+      <div class="auth-showcase reveal">
+        <p class="eyebrow">Welcome Back</p>
+        <h3>Step back into a premium ordering and reservation experience.</h3>
+        <p class="lead">Access your saved orders, elegant cart flow, reservations, and personalized dining dashboard.</p>
+      </div>
+
+      <div class="auth-panel reveal">
+        <p class="eyebrow">Login</p>
+        <h1>Sign in to your dining account.</h1>
+        <form action="/login" method="POST" class="auth-card form-grid">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input id="email" type="email" name="email" class="form-input" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" class="form-input" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <p class="form-note">New to Luxe Bites? <a href="/register">Create an account</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

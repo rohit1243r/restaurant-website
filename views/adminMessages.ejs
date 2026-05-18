@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Admin Messages" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="admin-shell">
+    <aside class="admin-sidebar reveal">
+      <p class="eyebrow">Inbox</p>
+      <h3>Admin Navigation</h3>
+      <nav class="sidebar-nav">
+        <a href="/admin"><i class="bi bi-grid"></i> Dashboard</a>
+        <a href="/admin/orders"><i class="bi bi-bag-check"></i> Manage Orders</a>
+        <a href="/admin/messages" class="active"><i class="bi bi-chat-dots"></i> Messages</a>
+        <a href="/add-food"><i class="bi bi-plus-circle"></i> Add Food</a>
+      </nav>
+    </aside>
+
+    <section>
+      <header class="admin-header reveal">
+        <div>
+          <p class="eyebrow">Customer Messages</p>
+          <h1>A polished inbox for guest communication.</h1>
+          <p class="lead">Customer messages are displayed as premium cards with soft depth, clear spacing, and readable hierarchy.</p>
+        </div>
+      </header>
+
+      <section class="card-grid two">
+        <% messages.forEach((message) => { %>
+          <article class="contact-card reveal">
+            <div class="food-topline">
+              <span class="category-pill"><%= message.createdAt.toDateString() %></span>
+              <span class="badge">Guest Message</span>
+            </div>
+            <h3><%= message.name %></h3>
+            <p class="lead"><strong>Email:</strong> <%= message.email %></p>
+            <p class="lead"><%= message.message %></p>
+          </article>
+        <% }) %>
+      </section>
+    </section>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Admin Dashboard" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="admin-shell">
+    <aside class="admin-sidebar reveal">
+      <p class="eyebrow">Control Center</p>
+      <h3>Admin Navigation</h3>
+      <nav class="sidebar-nav">
+        <a href="/admin" class="active"><i class="bi bi-grid"></i> Dashboard</a>
+        <a href="/menu"><i class="bi bi-cup-hot"></i> Menu Preview</a>
+        <a href="/admin/orders"><i class="bi bi-bag-check"></i> Manage Orders</a>
+        <a href="/admin/messages"><i class="bi bi-chat-dots"></i> Messages</a>
+        <a href="/add-food"><i class="bi bi-plus-circle"></i> Add Food</a>
+      </nav>
+    </aside>
+
+    <section>
+      <header class="admin-header reveal">
+        <div>
+          <p class="eyebrow">Dashboard Overview</p>
+          <h1>Restaurant analytics in a premium admin shell.</h1>
+          <p class="lead">A dark luxury management UI with stat cards, quick actions, table management, and chart placeholders.</p>
+        </div>
+        <div class="admin-actions">
+          <a href="/admin/orders" class="btn btn-primary">View Orders</a>
+          <a href="/admin/messages" class="btn btn-secondary">Open Inbox</a>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <article class="admin-card reveal">
+          <div class="admin-icon"><i class="bi bi-egg-fried"></i></div>
+          <h3>Total Foods</h3>
+          <strong><%= totalFoods %></strong>
+          <p class="lead">Active dishes in the storefront.</p>
+        </article>
+        <article class="admin-card reveal">
+          <div class="admin-icon"><i class="bi bi-people"></i></div>
+          <h3>Total Users</h3>
+          <strong><%= totalUsers %></strong>
+          <p class="lead">Registered customers in the platform.</p>
+        </article>
+        <article class="admin-card reveal">
+          <div class="admin-icon"><i class="bi bi-bag-heart"></i></div>
+          <h3>Total Orders</h3>
+          <strong><%= totalOrders %></strong>
+          <p class="lead">Combined completed and active orders.</p>
+        </article>
+      </section>
+
+      <section class="card-grid two">
+        <article class="chart-card reveal">
+          <p class="eyebrow">Revenue Trend</p>
+          <h3>Weekly Sales Placeholder</h3>
+          <p class="lead">Reserved visual space for charts and analytics integrations later.</p>
+          <div class="chart-placeholder"></div>
+        </article>
+        <article class="chart-card reveal">
+          <p class="eyebrow">Operations</p>
+          <h3>Kitchen and Delivery Performance</h3>
+          <p class="lead">Use this area for order speed, active staff, fulfillment metrics, or menu performance cards.</p>
+          <div class="info-grid" style="margin-top: 1rem;">
+            <div class="info-tile">
+              <h3>Fast Prep</h3>
+              <p class="lead">Visual KPI space for average prep time.</p>
+            </div>
+            <div class="info-tile">
+              <h3>Guest Retention</h3>
+              <p class="lead">Placeholder for repeat customer tracking.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

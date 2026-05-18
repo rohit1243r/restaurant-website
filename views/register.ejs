@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Register" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="page-shell">
+    <section class="auth-shell">
+      <div class="auth-showcase reveal">
+        <p class="eyebrow">Create Membership</p>
+        <h3>Join a polished restaurant platform built for modern guests.</h3>
+        <p class="lead">Unlock faster checkouts, reservation tracking, and a premium account experience across every screen size.</p>
+      </div>
+
+      <div class="auth-panel reveal">
+        <p class="eyebrow">Register</p>
+        <h1>Create your Luxe Bites account.</h1>
+        <form action="/register" method="POST" class="auth-card form-grid">
+          <div class="form-group">
+            <label for="name">Full name</label>
+            <input id="name" type="text" name="name" class="form-input" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="register-email">Email address</label>
+            <input id="register-email" type="email" name="email" class="form-input" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input id="register-password" type="password" name="password" class="form-input" placeholder="Create a secure password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Create Account</button>
+          <p class="form-note">Already have an account? <a href="/login">Login here</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

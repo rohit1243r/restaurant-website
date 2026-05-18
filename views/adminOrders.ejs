@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | Admin Orders" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="admin-shell">
+    <aside class="admin-sidebar reveal">
+      <p class="eyebrow">Operations</p>
+      <h3>Order Controls</h3>
+      <nav class="sidebar-nav">
+        <a href="/admin"><i class="bi bi-grid"></i> Dashboard</a>
+        <a href="/admin/orders" class="active"><i class="bi bi-bag-check"></i> Manage Orders</a>
+        <a href="/admin/messages"><i class="bi bi-chat-dots"></i> Messages</a>
+        <a href="/add-food"><i class="bi bi-plus-circle"></i> Add Food</a>
+      </nav>
+    </aside>
+
+    <section>
+      <header class="admin-header reveal">
+        <div>
+          <p class="eyebrow">Order Management</p>
+          <h1>Review live orders in a clean admin workflow.</h1>
+          <p class="lead">Use status actions, inspect line items, and keep the experience premium without adding extra backend logic.</p>
+        </div>
+      </header>
+
+      <section class="admin-stack">
+        <% orders.forEach((order) => { %>
+          <% const statusClass = (order.status || "pending").toLowerCase(); %>
+          <article class="order-card reveal">
+            <div class="order-top">
+              <div>
+                <p class="eyebrow">Customer Order</p>
+                <h3><%= order.userId.name %></h3>
+              </div>
+              <span class="status-badge status-<%= statusClass %>"><%= order.status %></span>
+            </div>
+
+            <div class="order-items">
+              <% order.items.forEach((item) => { %>
+                <div class="order-item">
+                  <span><strong><%= item.foodId.name %></strong> x <%= item.quantity %></span>
+                  <span class="muted">₹<%= item.foodId.price %></span>
+                </div>
+              <% }) %>
+            </div>
+
+            <div class="order-total">
+              <strong>Total: ₹<%= order.totalPrice %></strong>
+              <div class="stack-actions">
+                <a href="/update-order/<%= order._id %>/Preparing" class="btn btn-sm btn-secondary">Mark Preparing</a>
+                <a href="/update-order/<%= order._id %>/Delivered" class="btn btn-sm btn-primary">Mark Delivered</a>
+              </div>
+            </div>
+          </article>
+        <% }) %>
+      </section>
+    </section>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

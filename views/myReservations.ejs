@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head", { pageTitle: "Luxe Bites | My Reservations" }) %>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="page-hero-copy">
+        <p class="eyebrow">My Reservations</p>
+        <h1>Keep track of upcoming dining plans in one elegant view.</h1>
+        <p>Your reservations appear in polished cards with clean spacing and premium dark styling.</p>
+      </div>
+      <aside class="page-hero-card">
+        <div>
+          <p class="eyebrow">Dining Calendar</p>
+          <h3>Everything organized for a smooth guest experience.</h3>
+        </div>
+      </aside>
+    </section>
+
+    <% if (reservations && reservations.length) { %>
+      <section class="card-grid three">
+        <% reservations.forEach((reservation) => { %>
+          <article class="contact-card reveal">
+            <span class="category-pill"><i class="bi bi-calendar-event"></i> Reserved</span>
+            <h3><%= reservation.name %></h3>
+            <p class="lead"><strong>Phone:</strong> <%= reservation.phone %></p>
+            <p class="lead"><strong>Guests:</strong> <%= reservation.guests %></p>
+            <p class="lead"><strong>Date:</strong> <%= reservation.date %></p>
+            <p class="lead"><strong>Time:</strong> <%= reservation.time %></p>
+          </article>
+        <% }) %>
+      </section>
+    <% } else { %>
+      <section class="empty-state reveal">
+        <div class="empty-illustration"><i class="bi bi-calendar-x"></i></div>
+        <h2>No reservations yet.</h2>
+        <p class="lead">Booked tables will appear here with the same premium layout as the rest of the site.</p>
+        <a href="/reservation" class="btn btn-primary">Book a Table</a>
+      </section>
+    <% } %>
+  </main>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>
